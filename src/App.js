@@ -3,22 +3,26 @@ import styles from './App.module.css';
 import { Title } from "./Components";
 import Tailwind from "./Tailwind";
 import './tailwind.css'
+import Button from "./components/Button";
+import Tab from "./components/Tab";
 
 function App() {
   return (
     <div className={styles.App}>
-      <Title>{process.env.NODE_ENV}</Title>
-      <Title theme="dark">{process.env.NODE_ENV}</Title>
-      <p>
-        {process.env.REACT_APP_API_URL}
-      </p>
-
-      <p>
-        {process.env.REACT_APP_EBUNUMBER}
-      </p>
-    <Tailwind />
-    </div>
-  );
+      <div style={{padding: 20}}>
+        <Tab activeTab={1}>
+          <Tab.Panel title="Profil">Tab Panel 1</Tab.Panel>
+          <Tab.Panel title="Hakkında">Tab Panel 2</Tab.Panel>
+          <Tab.Panel title="Ayarlar">Tab Panel 3</Tab.Panel>
+        </Tab>
+      </div>
+      <div style={{padding: 20}}>
+      <Button text="Buton Örneği" />
+      <Button text="Buton Örneği" variant="success" />
+      </div>
+  <Tailwind />
+  </div>
+);
 }
 
 export default App;
